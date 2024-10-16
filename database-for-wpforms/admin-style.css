@@ -16,3 +16,13 @@
 .cfdb7-panel-content h3{
     margin-top: 0;
 }
+.wpformsdb .extension{
+    width: 29.7%;
+    border: 1px #888 solid;
+    padding: 7px;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    min-height: 330px;
+    background-color: #fff;
+}

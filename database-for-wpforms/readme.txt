@@ -3,7 +3,7 @@ Contributors: wpdebuglog
 Tags: wpforms, forms, wpform
 Requires at least: 4.8
 Tested up to: 6.6
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6

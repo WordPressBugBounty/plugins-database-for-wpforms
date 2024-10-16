@@ -4,7 +4,7 @@ Plugin Name:Database for WPforms
 Description: Save and manage WPForms submissions. Never lose important data. Database add-on for WPForms.
 Author: wpdebuglog
 Text Domain: database-for-wpforms
-Version: 1.0.6
+Version: 1.0.7
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -34,7 +34,7 @@ function wpforms_db_init(){
 
             if ( ! wp_verify_nonce( $nonce, 'dnonce' ) ) 
                 wp_die( esc_html__( 'Invalid nonce..!!', 'database-for-wpforms' ) );
-            $csv = new WPForms_Export_CSV();
+            $csv = new WPFormsDB_Export_CSV();
             $csv->download_csv_file();
         }
         new WPFormsDB_Wp_Main_Page;

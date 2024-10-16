@@ -31,6 +31,10 @@ class WPFormsDB_Wp_Main_Page
         add_menu_page( __( 'WPForms Submissions', 'contact-form-WPFormsDB' ), __( 'WPForms DB', 'contact-form-WPFormsDB' ), 
         $WPFormsDB_cap, 'wp-forms-db-list.php', array($this, 'list_table_page'), 
         'data:image/svg+xml;base64,' . base64_encode('<?xml version="1.0" ?><svg id="Layer_1" style="enable-background:new 0 0 50 50;" version="1.1" viewBox="0 0 50 50" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Layer_1_1_"><path d="M5,7v42h34v-6h6V1H11v6H5z M37,47H7V9h4h19v7h7v27V47z M32,10.414L35.586,14H32V10.414z M13,3h30v38h-4V14.586L31.414,7H13   V3z"/><rect height="2" width="22" x="11" y="20"/><rect height="2" width="22" x="11" y="26"/><rect height="2" width="22" x="11" y="32"/><rect height="2" width="9" x="11" y="40"/><rect height="2" width="9" x="24" y="40"/><rect height="2" width="8" x="18" y="14"/></g></svg>'));
+        
+        wp_enqueue_style( 'wpformsdb-admin-style', plugin_dir_url(dirname(__FILE__)).'admin-style.css', [], '1.0.7' );
+        
+        require 'addons.php';
     }
     /**
      * Display the list table page
@@ -43,7 +47,6 @@ class WPFormsDB_Wp_Main_Page
 
            wp_die( 'Please activate <a href="https://wordpress.org/plugins/wpforms-lite/" target="_blank">WPForms</a> plugin.' );
         }
-        wp_enqueue_style( 'wpformsdb-admin-style', plugin_dir_url(dirname(__FILE__)).'admin-style.css' );
 
         $fid  = empty($_GET['fid']) ? 0 : (int) $_GET['fid'];
         $ufid = empty($_GET['ufid']) ? 0 : (int) $_GET['ufid'];

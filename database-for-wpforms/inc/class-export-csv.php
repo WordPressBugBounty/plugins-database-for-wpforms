@@ -5,7 +5,7 @@
 
 if (!defined( 'ABSPATH')) exit;
 
-class WPForms_Export_CSV{
+class WPFormsDB_Export_CSV{
 
     /**
      * Download csv file
