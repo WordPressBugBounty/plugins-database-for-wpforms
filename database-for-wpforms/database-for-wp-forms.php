@@ -4,7 +4,7 @@ Plugin Name:Database for WPforms
 Description: Save and manage WPForms submissions. Never lose important data. Database add-on for WPForms.
 Author: wpdebuglog
 Text Domain: database-for-wpforms
-Version: 1.0.7
+Version: 1.0.8
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -72,7 +72,6 @@ function WPFormsDB_on_activate( $network_wide ){
 
     global $wpdb;
     if ( is_multisite() && $network_wide ) {
-        // Get all blogs in the network and activate plugin on each one
         $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
         foreach ( $blog_ids as $blog_id ) {
             switch_to_blog( $blog_id );
@@ -83,7 +82,6 @@ function WPFormsDB_on_activate( $network_wide ){
         WPFormsDB_create_table();
     }
 
-	// Add custom capability
 	$role = get_role( 'administrator' );
 	$role->add_cap( 'WPFormsDB_access' );
 }
@@ -93,7 +91,6 @@ register_activation_hook( __FILE__, 'WPFormsDB_on_activate' );
 
 function WPFormsDB_on_deactivate() {
 
-	// Remove custom capability from all roles
 	global $wp_roles;
 
 	foreach( array_keys( $wp_roles->roles ) as $role ) {
@@ -132,7 +129,6 @@ function WPFormsDB_save( $fields, $entry, $form_id ) {
                 
         }
 
-        /* WPFormsDB before save data. */
         $form_data = apply_filters('WPFormsDB_before_save_data', $form_data);
 
         do_action( 'WPFormsDB_before_save_data', $form_data );
@@ -147,9 +143,8 @@ function WPFormsDB_save( $fields, $entry, $form_id ) {
             'form_date'    => $form_date
         ) );
 
-        /* WPFormsDB after save data */
         $insert_id = $wpform->insert_id;
-        do_action( 'WPFormsDB_after_save_data', $insert_id );
+        do_action( 'WPFormsDB_after_save_data', $insert_id, $form_data );
     }
 
 }

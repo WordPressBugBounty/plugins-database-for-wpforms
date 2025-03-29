@@ -2,8 +2,8 @@
 Contributors: wpdebuglog
 Tags: wpforms, forms, wpform
 Requires at least: 4.8
-Tested up to: 6.6
-Stable tag: 1.0.7
+Tested up to: 6.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6
@@ -13,7 +13,7 @@ Save and manage WPForms entries (WPForms database). It is a lightweight WPForms 
 
 == Description ==
 
-The "WPFormsDB" plugin saves WPForms entries to your WordPress database. Export the data to a CSV file.
+The **WPFormsDB** plugin saves WPForms entries to your WordPress database. Export the data to a CSV file.
 By simply installing the plugin, it will automatically begin to capture form submissions from WPForms.
 
 = Features of WPFormsDB =
@@ -23,6 +23,12 @@ By simply installing the plugin, it will automatically begin to capture form sub
 * Easy to use and lightweight plugin
 * Developer friendly & easy to customize
 * No configuration is needed
+
+= Addons For WPForms =
+= Addons For WPForms =
+* [File Upload For WPForms](https://wordpress.org/plugins/file-upload-for-wpforms/) – Easily upload files with WPForms.
+* [Dynamic Input For WPForms](https://wordpress.org/plugins/dfxa-for-wpforms/) – Add dynamic input fields to WPForms.
+
 
 = Pro Addons = 
 * [Advanced MySQL database for wpforms](https://wpdebuglog.com/downloads/db4-wpforms/)
