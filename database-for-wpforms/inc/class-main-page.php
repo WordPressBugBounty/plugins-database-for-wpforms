@@ -93,9 +93,6 @@ class WPFormsDB_Main_List_Table extends WP_List_Table
     public function prepare_items()
     {
 
-        global $wpdb;
-        $cfdb        = apply_filters( 'WPFormsDB_database', $wpdb );
-        $table_name  = $cfdb->prefix.'wpforms_db';
         $columns     = $this->get_columns();
         $hidden      = $this->get_hidden_columns();
         $data        = $this->table_data();

@@ -12,7 +12,6 @@ if (!defined( 'ABSPATH')) exit;
 class WPFormsDB_Wp_Sub_Page
 {
     private $form_post_id;
-    private $search;
 
     /**
      * Constructor start subpage
@@ -145,7 +144,7 @@ class WPFormsDB_List_Table extends WP_List_Table
                 
                 $this->column_titles[] = $key_val;
 
-                if ( sizeof($columns) > 4) break;
+                if ( count($columns) > 4) break;
             }
             $columns['form-date'] = 'Date';
         }

@@ -2,8 +2,8 @@
 Contributors: wpdebuglog
 Tags: wpforms, forms, wpform
 Requires at least: 4.8
-Tested up to: 6.7
-Stable tag: 1.0.8
+Tested up to: 6.8
+Stable tag: 1.0.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6
@@ -24,7 +24,6 @@ By simply installing the plugin, it will automatically begin to capture form sub
 * Developer friendly & easy to customize
 * No configuration is needed
 
-= Addons For WPForms =
 = Addons For WPForms =
 * [File Upload For WPForms](https://wordpress.org/plugins/file-upload-for-wpforms/) – Easily upload files with WPForms.
 * [Dynamic Input For WPForms](https://wordpress.org/plugins/dfxa-for-wpforms/) – Add dynamic input fields to WPForms.
