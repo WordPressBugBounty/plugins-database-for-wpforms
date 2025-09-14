@@ -28,10 +28,10 @@ class WPFormsDB_Form_Details
 
         if ( is_numeric($this->form_post_id) && is_numeric($this->form_id) ) {
 
-           $results    = $cfdb->get_results( "SELECT * FROM $table_name WHERE form_post_id = $this->form_post_id AND form_id = $this->form_id LIMIT 1", OBJECT );
+           $result    = $cfdb->get_row( "SELECT * FROM $table_name WHERE form_post_id = $this->form_post_id AND form_id = $this->form_id LIMIT 1", OBJECT );
         }
 
-        if ( empty($results) ) {
+        if ( empty($result) ) {
             wp_die( esc_html__( 'Not valid contact form', 'database-for-wpforms' ));
         }
         ?>
@@ -42,8 +42,8 @@ class WPFormsDB_Form_Details
                         <?php do_action('WPFormsDB_before_formdetails_title',$this->form_post_id ); ?>
                         <h3><?php echo esc_html( get_the_title( $this->form_post_id ) ); ?></h3>
                         <?php do_action('WPFormsDB_after_formdetails_title', $this->form_post_id ); ?>
-                        <p></span><?php echo esc_html( $results[0]->form_date ); ?></p>
-                        <?php $form_data  = unserialize( $results[0]->form_value );
+                        <p></span><?php echo esc_html( $result->form_date ); ?></p>
+                        <?php $form_data  = unserialize( $result->form_value, ['allowed_classes' => false] );
 
                         foreach ($form_data as $key => $data):
 
@@ -72,7 +72,7 @@ class WPFormsDB_Form_Details
                                     $key_val = str_replace('your-', '', $key);
                                     $key_val = ucfirst( $key_val );
                                     $data    = nl2br( $data );
-                                    echo '<p><b>'.esc_html( $key_val ).'</b>: '.esc_html($data).'</p>';
+                                    echo '<p><b>'.esc_html( $key_val ).'</b>: '.wp_kses($data, ['br' => []]).'</p>';
                                 }
                             }
 
@@ -80,11 +80,14 @@ class WPFormsDB_Form_Details
 
                         $form_data['WPFormsDB_status'] = 'read';
                         $form_data = serialize( $form_data );
-                        $form_id = $results[0]->form_id;
+                        $form_id = $result->form_id;
 
-                        $cfdb->query( "UPDATE $table_name SET form_value =
-                            '$form_data' WHERE form_id = $form_id"
+                        $sql = $cfdb->prepare(
+                            "UPDATE {$table_name} SET form_value = %s WHERE form_id = %d",
+                            $form_data, 
+                            $form_id  
                         );
+                        $cfdb->query( $sql );
                         ?>
                     </div>
                 </div>

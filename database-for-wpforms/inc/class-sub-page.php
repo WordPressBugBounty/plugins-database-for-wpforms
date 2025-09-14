@@ -336,9 +336,13 @@ class WPFormsDB_List_Table extends WP_List_Table
                 $result_values = unserialize( $result_value );
                 $result_values['WPFormsDB_status'] = 'read';
                 $form_data = serialize( $result_values );
-                $cfdb->query(
-                    "UPDATE $table_name SET form_value = '$form_data' WHERE form_id = '$form_id'"
+
+                $sql = $cfdb->prepare(
+                    "UPDATE {$table_name} SET form_value = %s WHERE form_id = %d",
+                    $form_data, 
+                    $form_id  
                 );
+                $cfdb->query( $sql );
 
             endforeach;
 
@@ -352,9 +356,13 @@ class WPFormsDB_List_Table extends WP_List_Table
                 $result_values = unserialize( $result_value );
                 $result_values['WPFormsDB_status'] = 'unread';
                 $form_data = serialize( $result_values );
-                $cfdb->query(
-                    "UPDATE $table_name SET form_value = '$form_data' WHERE form_id = '$form_id'"
+                
+                $sql = $cfdb->prepare(
+                    "UPDATE {$table_name} SET form_value = %s WHERE form_id = %d",
+                    $form_data, 
+                    $form_id  
                 );
+                $cfdb->query( $sql );
             endforeach;
         }
 

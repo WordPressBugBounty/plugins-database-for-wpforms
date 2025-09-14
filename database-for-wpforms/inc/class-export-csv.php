@@ -80,7 +80,7 @@ class WPFormsDB_Export_CSV{
                 WHERE form_post_id = '$fid' ORDER BY form_id DESC LIMIT 1",OBJECT);
 
             $heading_row = reset( $heading_row );
-            $heading_row = unserialize( $heading_row->form_value );
+            $heading_row = unserialize( $heading_row->form_value, ['allowed_classes' => false] );
             $heading_key = array_keys( $heading_row );
 
             $total_rows  = $wpforms->get_var("SELECT COUNT(*) FROM $table_name WHERE form_post_id = '$fid' "); 
