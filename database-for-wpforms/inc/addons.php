@@ -1,6 +1,12 @@
 <?php
 
-add_submenu_page('wp-forms-db-list.php', __( 'Extensions', 'database-for-wpforms' ), __( 'Extensions', 'database-for-wpforms' ), 'manage_options', 'wpfdb-database-extensions',  'wpformsdb_extensions' );
+add_submenu_page('wp-forms-db-list.php', 
+	__( 'Extensions', 'database-for-wpforms' ), 
+	'<span style="color:#f18500">' . esc_html__( 'Addons', 'contact-form-cfdb7' ) . '</span>',
+	'manage_options', 
+	'wpfdb-database-extensions',  
+	'wpformsdb_extensions' 
+);
 
 /**
  * Extensions page

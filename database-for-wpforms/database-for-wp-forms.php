@@ -4,7 +4,7 @@ Plugin Name:Database for WPforms
 Description: Save and manage WPForms submissions. Never lose important data. Database add-on for WPForms.
 Author: wpdebuglog
 Text Domain: database-for-wpforms
-Version: 1.0.9
+Version: 1.1.0
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -175,24 +175,36 @@ function wpformsdb_admin_notice() {
     $date_now     = date_create( gmdate('Y-m-d G:i:s') );
     $date_diff    = date_diff( $install_date, $date_now );
 
-    if ( $date_diff->format("%d") < 7 ) {
+    if ( $date_diff->days < 7 ) {
 
         return false;
     }
 
-    if ( ! get_option( 'wpformsdb_view_ignore_notice' ) ) {
-
-        echo '<div class="updated"><p>';
-
-        printf( 
-            /* translators: 1: Settings URL, 2: Repository url */
-            __( 
-                'Awesome, you\'ve been using <a href="admin.php?page=wp-forms-db-list.php">WPForms DB</a> for more than 1 week. May we ask you to give it a 5-star rating on WordPress? | <a href="%2$s" target="_blank">Ok, you deserved it</a> | <a href="%1$s">I already did</a> | <a href="%1$s">No, not good enough</a>', 'database-for-wpforms' ), 
-                '?page=wp-forms-db-list.php&wpformsdb-ignore-notice=0',
-                'https://wordpress.org/plugins/database-for-wpforms/'
-            );
-        echo "</p></div>";
+    if( empty($_GET['page']) ){
+        return;
     }
+
+    if( isset($_GET['page']) && $_GET['page'] !== 'wp-forms-db-list.php' ){
+        return;
+    }
+
+    if ( 'true' === get_option( 'wpformsdb_view_ignore_notice' ) ) {
+        return;
+    }
+
+    echo '<div class="updated"><p>';
+
+    printf( 
+        /* translators: 1: Settings URL, 2: Repository url */
+        __( 
+            'Awesome, you\'ve been using <a href="%s" target="_blank">WPForms DB</a> for more than 1 week. May we ask you to give it a 5-star rating on WordPress? | <a href="%s" target="_blank">Ok, you deserved it</a> | <a href="%s">I already did</a> | <a href="%s">No, not good enough</a>', 'database-for-wpforms' ), 
+            'https://wordpress.org/plugins/database-for-wpforms/',
+            'https://wordpress.org/support/plugin/database-for-wpforms/reviews/',
+            '?page=wp-forms-db-list.php&wpformsdb-ignore-notice=0',
+            '?page=wp-forms-db-list.php&wpformsdb-ignore-notice=0',
+        );
+    echo "</p></div>";
+    
 } 
 
 function wpformsdb_view_ignore_notice() {

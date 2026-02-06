@@ -2,8 +2,8 @@
 Contributors: wpdebuglog
 Tags: wpforms, forms, wpform
 Requires at least: 4.8
-Tested up to: 6.8
-Stable tag: 1.0.9
+Tested up to: 6.9
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6
@@ -27,7 +27,7 @@ By simply installing the plugin, it will automatically begin to capture form sub
 = Addons For WPForms =
 * [File Upload For WPForms](https://wordpress.org/plugins/file-upload-for-wpforms/) – Easily upload files with WPForms.
 * [Dynamic Input For WPForms](https://wordpress.org/plugins/dfxa-for-wpforms/) – Add dynamic input fields to WPForms.
-
+* [Scheduled CSV Export for WPForms DB](https://wpdebuglog.com/get-wpformsdb-scheduled-feedback/) - Automatically export WPForms form entries to CSV on a schedule.
 
 = Pro Addons = 
 * [Advanced MySQL database for wpforms](https://wpdebuglog.com/downloads/db4-wpforms/)
