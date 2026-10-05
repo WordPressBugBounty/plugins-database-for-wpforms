@@ -280,23 +280,20 @@ class WPFormsDB_List_Table extends WP_List_Table
     public function process_bulk_action(){
 
         global $wpdb;
-        $cfdb       = apply_filters( 'WPFormsDB_database', $wpdb );
-        $table_name = $cfdb->prefix.'wpforms_db';
-        $action     = $this->current_action();
 
-        if ( isset( $_POST['_wpnonce'] ) && ! empty( $_POST['_wpnonce'] ) ) {
+        $cfdb         = apply_filters( 'WPFormsDB_database', $wpdb );
+        $table_name   = $cfdb->prefix.'wpforms_db';
+        $action       = $this->current_action();
 
-            $nonce        = sanitize_text_field( $_POST['_wpnonce'] );
-            $nonce_action = 'bulk-' . $this->_args['plural'];
-
-            if ( !wp_verify_nonce( $nonce, $nonce_action ) ){
-
-                wp_die( 'Not valid..!!' );
-            }
+        if ( ! current_user_can( 'WPFormsDB_access' ) && ! current_user_can( 'manage_options' ) ) {
+            wp_die( esc_html__( 'You are not allowed to perform this action.', 'database-for-wpforms' ) );
         }
 
+        if ( !empty( $action ) ) {
+            check_admin_referer( 'bulk-' . $this->_args['plural'] );
+        }
+        
         $form_ids = isset( $_POST['contact_form'] ) ? $_POST['contact_form'] : array();
-
 
         if( 'delete' === $action ) {
 
@@ -367,6 +364,7 @@ class WPFormsDB_List_Table extends WP_List_Table
         }
 
     }
+    
     /**
      * Define what data to show on each column of the table
      *

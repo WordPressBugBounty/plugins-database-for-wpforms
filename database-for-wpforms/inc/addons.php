@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 add_submenu_page('wp-forms-db-list.php', 
 	__( 'Extensions', 'database-for-wpforms' ), 

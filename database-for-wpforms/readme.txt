@@ -2,8 +2,8 @@
 Contributors: wpdebuglog
 Tags: wpforms, forms, wpform
 Requires at least: 4.8
-Tested up to: 6.9
-Stable tag: 1.1.0
+Tested up to: 7.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6
@@ -24,15 +24,24 @@ By simply installing the plugin, it will automatically begin to capture form sub
 * Developer friendly & easy to customize
 * No configuration is needed
 
+## 🤝 Real Human Support
+
+Need help? Contact us anytime.
+
+* 📧 **Email:** [support@wpdebuglog.com](mailto:support@wpdebuglog.com)
+* 💬 **Live Chat:** [wpdebuglog.com](https://wpdebuglog.com)
+
+I can help with customizations, plugin and theme compatibility, WooCommerce, bug fixes, and any WordPress development or support.
+
 = Addons For WPForms =
 * [File Upload For WPForms](https://wordpress.org/plugins/file-upload-for-wpforms/) – Easily upload files with WPForms.
 * [Dynamic Input For WPForms](https://wordpress.org/plugins/dfxa-for-wpforms/) – Add dynamic input fields to WPForms.
-* [Scheduled CSV Export for WPForms DB](https://wpdebuglog.com/get-wpformsdb-scheduled-feedback/) - Automatically export WPForms form entries to CSV on a schedule.
 
 = Pro Addons = 
-* [Advanced MySQL database for wpforms](https://wpdebuglog.com/downloads/db4-wpforms/)
-* [WPForms to PostgreSQL](https://wpdebuglog.com/downloads/wpforms-to-postgresql/)
-* [Unique Input Field Option](https://wpdebuglog.com/downloads/unique-input-wpforms/)
+* [Scheduled CSV Export](https://wpdebuglog.com/downloads/scheduled-csv-export-for-wpforms-db/) - Automatically export WPForms form entries to CSV on a schedule.
+* [Advanced MySQL database for wpforms](https://wpdebuglog.com/downloads/db4-wpforms/) - Save submissions to an internal or external (remote) MySQL database.
+* [WPForms to PostgreSQL](https://wpdebuglog.com/downloads/wpforms-to-postgresql/) - Connect WordPress WPForms to PostgreSQL 
+* [Unique Input Field Option](https://wpdebuglog.com/downloads/unique-input-wpforms/) - Preventing Duplicate Input Values 
 
 
 = Form Email Testing Tool =
